@@ -1,18 +1,12 @@
 import streamlit as st
-from prompts import judge_prompt
-from llm import get_judgement
-from ui import render_header, user_inputs
 
-render_header()
-text, tone, context = user_inputs()
+# Sidebar navigation
+page = st.sidebar.radio("Navigate", ["Judge Me AI", "Advanced Analysis"])
 
-if st.button("Judge Me 😈"):
-    if not text.strip():
-        st.warning("Paste something first. I can’t judge air.")
-    else:
-        with st.spinner("Judging you silently..."):
-            prompt = judge_prompt(text, tone, context)
-            result = get_judgement(prompt)
+if page == "Judge Me AI":
+    from modules.judge_me import run as run_mvp
+    run_mvp()
 
-        st.markdown("---")
-        st.markdown(result)
+elif page == "Advanced Analysis":
+    from modules.advance import run as run_advanced
+    run_advanced()
