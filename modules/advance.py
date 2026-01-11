@@ -1,4 +1,3 @@
-# pages/advanced.py
 import streamlit as st
 from llm import get_judgement
 from prompts import persona_drift_prompt, red_flags_prompt, social_perception_prompt

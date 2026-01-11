@@ -1,6 +1,5 @@
 import streamlit as st
 
-# Sidebar navigation
 page = st.sidebar.radio("Navigate", ["Judge Me AI", "Advanced Analysis"])
 
 if page == "Judge Me AI":
